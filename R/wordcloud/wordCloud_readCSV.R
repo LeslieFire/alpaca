@@ -1,4 +1,3 @@
-library(gdata)
 library(wordcloud)
 
 file <- list.files(pattern = "*.csv$")
@@ -23,10 +22,19 @@ for (x in file) {
       filePath <-paste("./pngs/", title, ".png", sep="")
       
       png(file= filePath, bg="white",width = 480, height = 480)
-      colors=brewer.pal(8,"Dark2")
-      par(family='STXihei')
+      colors="blue"
       
-      wordcloud(data[,1],data[,2],scale=c(10,0.5),min.freq=-Inf,max.words=60,colors=colors,random.order=F,random.color=F,ordered.colors=F)
+      windowsFonts(A=windowsFont("Î¢ÈíÑÅºÚ"))
+      par(family='A')
+      
+      firstCol <- as.character(data[which(data[,ind*2-1] != "") , ind*2-1])
+      secondCol <- na.omit(data[,ind*2])
+      maxNum <- max(secondCol)
+      minNum <- min(secondCol)
+      secondCol <- (secondCol - minNum) / (maxNum - minNum)
+      
+      
+      wordcloud(firstCol, secondCol, scale=c(5,0.5),min.freq=-Inf,max.words=60,colors=colors,rot.per = 0, random.order=F,random.color=F,ordered.colors=F)
       
       dev.off()
     }
