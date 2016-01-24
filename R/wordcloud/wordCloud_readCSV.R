@@ -24,7 +24,7 @@ for (x in file) {
       png(file= filePath, bg="white",width = 480, height = 480)
       colors="blue"
       
-      windowsFonts(A=windowsFont("Î¢ÈíÑÅºÚ"))
+      windowsFonts(A=windowsFont("å¾®è½¯é›…é»‘"))
       par(family='A')
       
       firstCol <- as.character(data[which(data[,ind*2-1] != "") , ind*2-1])
