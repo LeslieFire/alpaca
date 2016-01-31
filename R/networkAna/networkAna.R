@@ -2,13 +2,32 @@
 
 library(igraph)
 
-occr <- read.table("./occurrence.txt", sep = "\t")
-cooc <- read.table("./cooccurrence.txt", sep = "\t")
+occr <- read.table("./sheet2.csv", sep = ",", fileEncoding = "gbk", header = T)
+cooc <- read.table("./sheet1.csv", sep = ",",  fileEncoding = "gbk",header = T)
+levelSheet <- read.csv("./query_result.csv", header = T)
 
-maxN <- max(occr[,1])
-minN <- min(occr[,1])
-occr[,1] <- as.integer((occr[,1]-minN) * 100 / (maxN-minN))
+maxN <- max(occr[,2])
+minN <- min(occr[,2])
+occr[,2] <- as.integer((occr[,2]-minN) * 30 / (maxN-minN))
+
+midWeight <- median(cooc[,3])
+
 par(family='STXihei')
-edgeMat <- matrix(c(cooc[,1], cooc[,2]), ncol=2)
+
+ind <- which(cooc[,3] > midWeight)
+
+mat <- matrix(c(as.character(cooc[ind,1]), as.character(cooc[ind,2])), nrow = length(ind))
+
+edgedata <- unlist(as.data.frame(t(matrix(match(mat, occr[,1]),  nrow = length(mat[,1])))))
+
+G <- graph(edgedata, directed = F)
+
+plot(G, layout = layout, vertex.size = occr[,2])
+
+
+
+
+
+
 
 
