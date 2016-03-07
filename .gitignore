@@ -1,0 +1,30 @@
+# file : txt, csv, xlsx
+*.txt
+*.csv
+*.xlsx
+*.rar
+*.png
+
+!/R/map/mapfile/*.csv
+
+# directory : test, backup
+R/*/test
+R/*/backup/*
+R/*/pngs
+R/*/toprocess
+R/*/tmp
+
+
+
+# R
+.RData
+.Rhistory
+
+
+# ipython
+.ipynb_checkpoints
+*.ipynb
+
+
+!.gitignore
+

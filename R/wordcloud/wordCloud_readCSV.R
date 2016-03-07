@@ -1,4 +1,10 @@
+# @Date    : 2016-03-07 10:33:38
+# @Author  : Leslie (yangfei@hudongpai.com)
+# @Link    : http://example.org
+# @Version : $0.1$
+
 library(wordcloud)
+library(Cairo)
 
 file <- list.files(pattern = "*.csv$")
 if(!dir.exists("./pngs")){
@@ -19,10 +25,10 @@ for (x in file) {
     
     for(ind in 1:(num/2)){
       title <- headers[ind*2 -1]
-      filePath <-paste("./pngs/", title, ".png", sep="")
+      filePath <-paste("./pngs/", title, sep="")
       
-      png(file= filePath, bg="white",width = 480, height = 480)
-      colors="blue"
+      CairoPDF(file= filePath, bg="white",width = 8, height = 8)
+      colors=c("deeppink3", "darksalmon", "firebrick4")
       
       windowsFonts(A=windowsFont("Î¢ÈíÑÅºÚ"))
       par(family='A')
@@ -30,11 +36,11 @@ for (x in file) {
       firstCol <- as.character(data[which(data[,ind*2-1] != "") , ind*2-1])
       secondCol <- na.omit(data[,ind*2])
       maxNum <- max(secondCol)
-      minNum <- min(secondCol)
+      minNum <- min(secondCol)-1
       secondCol <- (secondCol - minNum) / (maxNum - minNum)
       
       
-      wordcloud(firstCol, secondCol, scale=c(5,0.5),min.freq=-Inf,max.words=60,colors=colors,rot.per = 0, random.order=F,random.color=F,ordered.colors=F)
+      wordcloud(firstCol, secondCol, scale=c(5,1),min.freq=-Inf,max.words=60,colors=colors,rot.per = 0, random.order=F,random.color=F,ordered.colors=F)
       
       dev.off()
     }

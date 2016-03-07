@@ -1,4 +1,9 @@
-library(gdata)
+# @Date    : 2016-03-07 10:33:38
+# @Author  : Leslie (yangfei@hudongpai.com)
+# @Link    : http://example.org
+# @Version : $0.1$
+
+
 library(wordcloud)
 
 file <- list.files(pattern = "*.xlsx$")
