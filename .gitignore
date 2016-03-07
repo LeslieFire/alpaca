@@ -24,7 +24,7 @@ R/*/tmp
 
 # ipython
 .ipynb_checkpoints
-*.ipynb
+Python/*.ipynb
 
 
 !.gitignore
