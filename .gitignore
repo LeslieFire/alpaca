@@ -5,7 +5,8 @@
 *.rar
 *.png
 
-!/R/map/mapfile/*.csv
+!R/map/mapfile/*.csv
+!Python/clean/filter_words.txt
 
 # directory : test, backup
 R/*/test

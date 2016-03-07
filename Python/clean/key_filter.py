@@ -37,7 +37,7 @@ def filter_word(s):
 
 if __name__ == "__main__":
         ResultWriter = file("result.txt", "w+")
-        FilteredWriter = file("filtered_lines.txt", "w+")
+        #FilteredWriter = file("filtered_lines.txt", "w+")
         reader = open(FILE_NAME, 'rb')
 
         with open(FILTER_WORDS, "rb") as f:
@@ -52,9 +52,9 @@ if __name__ == "__main__":
 
         ret = filter(filter_word, lines)
         ResultWriter.writelines(ret)
-        FilteredWriter.writerLines(filtered_lines)
+        #FilteredWriter.writerLines(filtered_lines)
 
-        FilteredWriter.close()
+        #FilteredWriter.close()
         ResultWriter.close()
         reader.close()
  
