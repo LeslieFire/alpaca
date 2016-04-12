@@ -11,12 +11,12 @@ import sys
 ####################以下是参数######################
 
 COLUMN = 6
-FILE_NAME = "null_  _665_1457316104102.txt"
+FILE_NAME = "null_  _665_1456797550257.txt"
 MATCH = False
 
 ####################以上是参数######################
 
-FILTER_WORDS = "filter_words1.txt"
+FILTER_WORDS = "filter_words.txt"
 other = " 无"
 wrongID = []
 filter_words = []
